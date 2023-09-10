@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="white">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.icon-icons.com/icons2/2108/PNG/512/javascript_icon_130900.png"
+    />
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R-P-S</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="title">
+          <div class="title-pic">
+            <img src="./img/rock.svg" alt="" />
+            <img src="./img/paper.svg" alt="" />
+            <img src="./img/scissors.svg" alt="" />
+          </div>
+          <h1>ROCK PAPER SCISSORS</h1>
+          <h3>online</h3>
+        </div>
+
+        <div class="game">
+          <div class="game-item">
+            <p>Do you have a dispute with your friend?</p>
+            <h5>Resolve it online!</h5>
+          </div>
+          <div class="game-item">
+            <p>Press "Get Started" to play with a friend.</p>
+            <h5>Send him a link to connect.</h5>
+          </div>
+        </div>
+
+        <div class="start">
+          <button class="button">get Started</button>
+        </div>
+
+        <div class="play ">
+          <div class="wrapper">
+            <div class="buttons">
+              <button class="rpsButton" value="Rock">✊</button>
+              <button class="rpsButton" value="Paper">🤚</button>
+              <button class="rpsButton" value="Scissors">✌️</button>
+            </div>
+            <div class="resultContainer">
+            <div id="player-score"></div>
+            <div id="hands"></div>
+            <div id="result"></div>
+            <button id='endGameButton'>🔴</button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="main">
+          <div class="main-about">
+            <h2>About</h2>
+            <p>
+              “Rock paper scissors” is a simple and interesting game. Many of us
+              used to play it in a school to resolve disputes or just to spend
+              some time. But how to play if your friends are far away? For this
+              reason
+            </p>
+          </div>
+          <div class="main-htp">
+            <h2>How to play online?</h2>
+            <p>
+              <span>With a friend.</span>
+              If you want to play with your friend, just press “Get Started” and
+              you will be redirected to the next page. At the top you will see
+              your room’s url which you should send to your friend. The game
+              will begin when another player will enter the room. Both players
+              must open the same url for the game to begin. If the game doesn’t
+              start then you’re in different rooms. Please be sure that you’re
+              on the same url.
+            </p>
+
+            <p>
+              <span>Play with a stranger.</span>
+              If you don’t have an opponent to play with you, don’t be upset.
+              You can spend some time playing Rock Paper Scissors with a random
+              stranger. Please click a “Random stranger” button and the game
+              will find an opponent for you. Usually it takes around 10-20
+              seconds. When the opponent is found, the game will begin
+              automatically.
+            </p>
+          </div>
+          <div class="main-rules">
+            <h2>What are the rules?</h2>
+
+            <p>
+              The rules are very simple and probably you remember them from your
+              childhood:
+            </p>
+
+            <ul>
+              <li>
+                If you choose Rock, you will win against Scissors but lose
+                against Paper.
+              </li>
+              <li>
+                If you choose Paper, you will win against Rock but lose against
+                Scissors.
+              </li>
+              <li>
+                If you choose Scissors, you will win against Paper but lose
+                against Rock.
+              </li>
+            </ul>
+
+            <p>
+              There can be 3 to 5 rounds. The game ends when somebody gets 3
+              wins. If you want to play again, just click “Play again” button
+              after a game is finished.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
