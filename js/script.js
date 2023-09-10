@@ -24,6 +24,7 @@ function getResult(playerChoice, computerChoice) {
     updatePlayerScore();
   } else if (playerChoice !== computerChoice) {
     computerScore++;
+    
   }
 }
 
