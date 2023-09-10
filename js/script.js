@@ -1,13 +1,12 @@
-let start = document.querySelector(".button");
-let getStart = document.querySelector(".play");
-let userOnescore = 0;
-let userTwoscore = 0;
-let score = 0;
-const totalScore = { computerScore: 0, playerScore: 0 };
+const startButton = document.querySelector(".button");
+const playArea = document.querySelector(".play");
+let playerScore = 0;
+let computerScore = 0;
+let resultDiv, handsDiv;
 
-start.onclick = function (event) {
-  getStart.classList.toggle("active");
-};
+startButton.addEventListener("click", function () {
+  playArea.classList.toggle("active");
+});
 
 function getCompChoice() {
   const rpsChoice = ["Rock", "Paper", "Scissors"];
@@ -16,55 +15,60 @@ function getCompChoice() {
 }
 
 function getResult(playerChoice, computerChoice) {
-  if (playerChoice == computerChoice) {
-    score += 0;
-  } else if (playerChoice == "Rock" && computerChoice == "Scissors") {
-    score++;
-  } else if (playerChoice == "Paper" && computerChoice == "Rock") {
-    score++;
-  } else if (playerChoice == "Scissors" && computerChoice == "Paper") {
-    score++;
-  } else {
-    score--;
+  if (
+    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+    (playerChoice === "Paper" && computerChoice === "Rock") ||
+    (playerChoice === "Scissors" && computerChoice === "Paper")
+  ) {
+    playerScore++;
+    updatePlayerScore();
+  } else if (playerChoice !== computerChoice) {
+    computerScore++;
   }
-
-  return score;
 }
 
-function showResult(score, playerChoice, computerChoice) {
-  const resultDiv = document.getElementById("result"); // Remove the period
-  const handsDiv = document.getElementById("hands"); // Remove the period
-  const playerScore = document.getElementById("player-score"); // Remove the period
+function showResult(playerChoice, computerChoice) {
+  resultDiv = document.getElementById("result");
+  handsDiv = document.getElementById("hands");
 
-  if (score == 1) {
-    resultDiv.innerText = "You Won!";
-  } else if (score == 0) {
-    resultDiv.innerText = "It's a tie!";
+  if (playerScore > computerScore) {
+    resultDiv.innerText = "You Win!";
+  } else if (playerScore < computerScore) {
+    resultDiv.innerText = "Computer Wins!";
   } else {
-    resultDiv.innerText = "You Lose!";
+    resultDiv.innerText = "It's a Tie!";
   }
 
-  handsDiv.innerText = 'Player:${playerChoice} Computer:${computerChoice}'
+  handsDiv.innerText = `Player: ${playerChoice} -- Computer: ${computerChoice}`;
+}
+
+function updatePlayerScore() {
+  const playerScoreDiv = document.getElementById("player-score");
+  playerScoreDiv.innerText = `Player Score: ${playerScore}`;
 }
 
 function onClickRPS(playerChoice) {
-  console.log({ playerChoice });
-
   const computerChoice = getCompChoice();
-  console.log({ computerChoice });
-
-  const localScore = getResult(playerChoice, computerChoice); // Use a different name for the local variable
-  totalScore["playerScore"] += localScore;
-  console.log({ localScore });
-  console.log(totalScore);
-  showResult(localScore, playerChoice, computerChoice);
+  getResult(playerChoice, computerChoice);
+  showResult(playerChoice, computerChoice);
 }
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  updatePlayerScore();
+  resultDiv.innerText = "";
+  handsDiv.innerText = "";
+}
+
+const endGameButton = document.getElementById("endGameButton");
+endGameButton.addEventListener("click", resetGame);
 
 function playGame() {
   const rpsButtons = document.querySelectorAll(".rpsButton");
 
   rpsButtons.forEach((rpsButton) => {
-    rpsButton.onclick = () => onClickRPS(rpsButton.value);
+    rpsButton.addEventListener("click", () => onClickRPS(rpsButton.value));
   });
 }
 
