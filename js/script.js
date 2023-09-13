@@ -24,8 +24,8 @@ function getResult(playerChoice, computerChoice) {
     updatePlayerScore();
   } else if (playerChoice !== computerChoice) {
     computerScore++;
-    
-  }
+    updatePlayerScore();
+ }
 }
 
 function showResult(playerChoice, computerChoice) {
@@ -33,9 +33,9 @@ function showResult(playerChoice, computerChoice) {
   handsDiv = document.getElementById("hands");
 
   if (playerScore > computerScore) {
-    resultDiv.innerText = "You Win!";
+    resultDiv.innerText = "You Wining!";
   } else if (playerScore < computerScore) {
-    resultDiv.innerText = "Computer Wins!";
+    resultDiv.innerText = "Computer Wining!";
   } else {
     resultDiv.innerText = "It's a Tie!";
   }
@@ -45,7 +45,7 @@ function showResult(playerChoice, computerChoice) {
 
 function updatePlayerScore() {
   const playerScoreDiv = document.getElementById("player-score");
-  playerScoreDiv.innerText = `Player Score: ${playerScore}`;
+  playerScoreDiv.innerText = `Player Score: ${playerScore} -- Computer Score: ${computerScore} `;
 }
 
 function onClickRPS(playerChoice) {

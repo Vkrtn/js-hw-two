@@ -372,4 +372,12 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#hands {
+  margin: 10px 0;
+}
+
+#result {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */
